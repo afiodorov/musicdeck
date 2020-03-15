@@ -8,8 +8,10 @@ static FLAT_NOTES: [&'static str; 12] = [
     "A", "Bb", "Cb", "C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab",
 ];
 
-fn add_semetones(frequency: f64, n: i64) -> f64 {
-    frequency * 2f64.powf(n as f64 / 12.0)
+fn add_semitones(note: &str, n: i64) -> &'static str {
+    let start = note_to_frequency(note);
+    let use_flat = is_flat(note) || (is_natural(note) && n < 0);
+    frequency_to_note(start * 2f64.powf(n as f64 / 12.0), use_flat)
 }
 
 fn frequency_to_note(frequency: f64, flat: bool) -> &'static str {
@@ -46,9 +48,7 @@ fn note_to_frequency(note: &str) -> f64 {
 }
 
 fn perfect_n_fifth(note: &str, n: i64) -> &'static str {
-    let start = note_to_frequency(note);
-    let use_flat = is_flat(note) || (is_natural(note) && n < 0);
-    frequency_to_note(add_semetones(start, 7 * n), use_flat)
+    add_semitones(note, 7 * n)
 }
 
 fn perfect_fifth(note: &str) -> &'static str {
@@ -56,9 +56,7 @@ fn perfect_fifth(note: &str) -> &'static str {
 }
 
 fn perfect_n_forths(note: &str, n: i64) -> &'static str {
-    let start = note_to_frequency(note);
-    let use_flat = is_flat(note) || (is_natural(note) && n < 0);
-    frequency_to_note(add_semetones(start, 5 * n), use_flat)
+    add_semitones(note, 5 * n)
 }
 
 fn perfect_forth(note: &str) -> &'static str {
@@ -66,8 +64,8 @@ fn perfect_forth(note: &str) -> &'static str {
 }
 
 fn major_scale(note: &str) -> Vec<&'static str> {
-    let scale = vec![-1, 0, 1, 2, 3, 4, 5];
-    scale.iter().map(|s| perfect_n_fifth(note, *s)).collect()
+    let scale = vec![0, 2, 4, -7, 7, 9, 11];
+    scale.iter().map(|s| add_semitones(note, *s)).collect()
 }
 
 fn enharmonic(note: &str) -> &'static str {

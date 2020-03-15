@@ -10,19 +10,19 @@ Currently I used this for generating major scales:
 
 # outputs:
 3 enharmonics; C# F# B# <-> Db Gb Cb
-major scale of C; F C G D A E B
-major scale of G; C G D A E B F#
-major scale of D; G D A E B F# C#
-major scale of A; D A E B F# C# G#
-major scale of E; A E B F# C# G# D#
-major scale of Ab; Db Ab Eb Bb F C G
-major scale of Eb; Ab Eb Bb F C G D
-major scale of Bb; Eb Bb F C G D A
-major scale of F; Bb F C G D A E
-major scale of Db; (<-> C#) Gb Db Ab Eb Bb F C
-major scale of Gb; (<-> F#) Cb Gb Db Ab Eb Bb F
-major scale of Cb; (<-> B) E Cb Gb Db Ab Eb Bb
-major scale of C#; (<-> Db) F# C# G# D# A# F C
-major scale of F#; (<-> Gb) B F# C# G# D# A# F
-major scale of B; (<-> Cb) E B F# C# G# D# A#
+major scale of C; C D E F G A Cb
+major scale of G; G A B C D E Gb
+major scale of D; D E F# G A B Db
+major scale of A; A B C# D E F# Ab
+major scale of E; E F# G# A B C# Eb
+major scale of Ab; Ab Bb C Db Eb F G
+major scale of Eb; Eb F G Ab Bb C D
+major scale of Bb; Bb C D Eb F G A
+major scale of F; F G A A# C D E
+major scale of Db; (<-> C#) Db Eb F Gb Ab Bb C
+major scale of Gb; (<-> F#) Gb Ab Bb Cb Db Eb F
+major scale of Cb; (<-> B) Cb Db Eb E Gb Ab Bb
+major scale of C#; (<-> Db) C# D# F F# G# A# C
+major scale of F#; (<-> Gb) F# G# A# B C# D# F
+major scale of B; (<-> Cb) B C# D# E F# G# Bb
 ```
