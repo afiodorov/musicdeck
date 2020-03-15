@@ -28,6 +28,15 @@ fn is_flat(note: &str) -> bool {
     ch == 'b'
 }
 
+fn is_sharp(note: &str) -> bool {
+    let ch = note.chars().last().unwrap();
+    ch == '#'
+}
+
+fn is_natural(note: &str) -> bool {
+    !is_sharp(note) && !is_sharp(note)
+}
+
 fn note_to_frequency(note: &str) -> f64 {
     if let Some(p) = SHARP_NOTES.iter().position(|x| x == &note) {
         return 440.0 * 2.0f64.powf(p as f64 / 12.0);
@@ -38,7 +47,8 @@ fn note_to_frequency(note: &str) -> f64 {
 
 fn perfect_n_fifth(note: &str, n: i64) -> &'static str {
     let start = note_to_frequency(note);
-    frequency_to_note(add_semetones(start, 7 * n), is_flat(note))
+    let use_flat = is_flat(note) || (is_natural(note) && n < 0);
+    frequency_to_note(add_semetones(start, 7 * n), use_flat)
 }
 
 fn perfect_fifth(note: &str) -> &'static str {
@@ -47,7 +57,8 @@ fn perfect_fifth(note: &str) -> &'static str {
 
 fn perfect_n_forths(note: &str, n: i64) -> &'static str {
     let start = note_to_frequency(note);
-    frequency_to_note(add_semetones(start, 5 * n), is_flat(note))
+    let use_flat = is_flat(note) || (is_natural(note) && n < 0);
+    frequency_to_note(add_semetones(start, 5 * n), use_flat)
 }
 
 fn perfect_forth(note: &str) -> &'static str {

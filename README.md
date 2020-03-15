@@ -18,7 +18,7 @@ major scale of E; A E B F# C# G# D#
 major scale of Ab; Db Ab Eb Bb F C G
 major scale of Eb; Ab Eb Bb F C G D
 major scale of Bb; Eb Bb F C G D A
-major scale of F; A# F C G D A E
+major scale of F; Bb F C G D A E
 major scale of Db; (<-> C#) Gb Db Ab Eb Bb F C
 major scale of Gb; (<-> F#) Cb Gb Db Ab Eb Bb F
 major scale of Cb; (<-> B) E Cb Gb Db Ab Eb Bb
